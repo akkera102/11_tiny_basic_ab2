@@ -1,0 +1,94 @@
++++ hello.bas 
+
+10 PRINT "HELLO ARDUBOY"
+
+
+
+
++++ zundoko.bas
+
+10 R=RND(2)-1; IF R PRINT "ZUN ",; GOTO 30
+20 PRINT "DOKO ",
+30 N=16*R+N/2; IF N#15 GOTO 10
+40 PRINT "KI.YO.SHI!"
+
+
+
+
+++++ fizzbuzz.bas
+
+10 FOR I=1 TO 100
+20 F=I/3*3=I; B=I/5*5=I
+30 IF F PRINT "FIZZ",
+40 IF B PRINT "BUZZ",
+50 IF F+B=0 PRINT I,
+60 PRINT
+70 NEXT I
+
+
+
+
+++++ line.bas
+
+10 CLS
+20 FOR I=0 TO 63
+30 PSET I,I,1
+40 NEXT I
+
+
+
+
+++++ test.bas
+
+10 FOR I=2 TO -2 STEP -1; GOSUB 100; NEXT I
+20 STOP
+100 REM SUBROUTINE
+110 PRINT ABS(I); RETURN
+
+
+
+
+++++ ball.bas
+
+1000 REM SETUP
+1010 U=4
+1020 V=4
+1030 X=30
+1040 Y=30
+
+2000 REM UPDATE
+2010 X=X+U
+2020 Y=Y+V
+2110 IF X+U<=0 U=RND(10)
+2120 IF X+U>=127 U=-RND(10)
+2210 IF Y+V<=0 V=RND(10)
+2220 IF Y+V>=63 V=-RND(10)
+
+3000 REM DRAW
+3010 CLS
+3020 PSET X,Y,1
+4000 GOTO 2000
+
+
+
+
+++++ multball.bas
+
+1000 CLS
+1010 B=11
+
+2010 FOR I=0 TO B STEP 4
+
+2020 @(I)=@(I)+@(I+2)
+2030 @(I+1)=@(I+1)+@(I+3)
+
+2050 IF @(I)<=0 @(I+2)=RND(10)
+2060 IF @(I)>=127 @(I+2)=-RND(10)
+
+2070 IF @(I+1)<=0 @(I+3)=RND(10)
+2080 IF @(I+1)>=63 @(I+3)=-RND(10)
+
+2090 PSET @(I),@(I+1),1
+2100 NEXT I
+
+4000 GOTO 2010
