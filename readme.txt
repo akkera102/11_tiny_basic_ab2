@@ -18,7 +18,7 @@ INPUT order.
 windows Arduino IDE 1.6.12
 
 ## License
-GNU General Public License
+GPL v2
 
 ## History
 v1.00 2017/06/18    first version
